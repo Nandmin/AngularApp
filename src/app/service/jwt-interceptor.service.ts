@@ -3,9 +3,11 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable(
+  // {
+  // providedIn: 'root' // manuálisan állítva az app.module-ban
+// }
+)
 export class JwtInterceptorService implements HttpInterceptor{
 
   constructor(

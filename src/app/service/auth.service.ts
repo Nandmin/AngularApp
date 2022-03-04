@@ -23,15 +23,15 @@ export class AuthService {
     private config: ConfigService,
     private http: HttpClient,
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
   ) { }
 
   get currentUserValue(): User {
     return this.currentUserSubject.value;
   }
   // sikeres login esetén, a szerver visszaad egy tokent, amit le kell tárolni a user azonosításhoz
-  login(loginData: User): Observable<{ accessToken: string }> {
-    return this.http.post<{ accesToken: string }>(
+  login(loginData: User): Observable< { accessToken: string } > {
+    return this.http.post<{accesToken: string} > (
       this.logInUrl,
       { email: loginData.email, password: loginData.password }
       )
