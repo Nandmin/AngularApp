@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   }
 
   //
-  onLogIn(NgForm: NgForm): void{
+  onLogin(NgForm: NgForm): void{
     this.auth.login(NgForm.value).toPromise().then(
       userResponse => {
         if (this.auth.currentUserValue){

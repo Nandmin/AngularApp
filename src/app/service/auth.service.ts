@@ -16,7 +16,7 @@ export class AuthService {
   logOutUrl= `${this.config.apiUrl}logout`;
   storageName = 'currentUser';
   //currentUserSubject: User  = new User();
-  currentUserSubject: BehaviorSubject<any | null> = new BehaviorSubject(null);
+  currentUserSubject: BehaviorSubject<User | User[] | null | any> = new BehaviorSubject(null);
   lastToken: string = ''; //user azonosítására szolgál
 
   constructor(
@@ -30,31 +30,34 @@ export class AuthService {
     return this.currentUserSubject.value;
   }
   // sikeres login esetén, a szerver visszaad egy tokent, amit le kell tárolni a user azonosításhoz
-  login(loginData: User): Observable< { accessToken: string } > {
-    return this.http.post<{accesToken: string} > (
-      this.logInUrl,
-      { email: loginData.email, password: loginData.password }
-      )
-      .pipe( switchMap( response => {
-        if(response.accesToken){
-          this.lastToken = response.accesToken;
-          return this.userService.query(`email=${loginData.email}`);
-        }
-        return of(null);
-      }))
-      .pipe(
-        tap( user => {
-          if (!user){
-            localStorage.removeItem(this.storageName);
-            this.currentUserSubject.next(null);
-          }
-          else {
-            user[0].token = this.lastToken;
-            localStorage.setItem(this.storageName, JSON.stringify(user[0]));
-            this.currentUserSubject.next(user[0]);
-          }
-        })
-      );
+  login(loginData: User): Observable<{ accessToken: string } | User | User[]> {
+    alert(this.currentUserSubject.value);
+    return this.currentUserSubject.value;
+    // ------------ not working at the moment ------
+    // return this.http.post<{ accesToken: string }>(
+    //   this.logInUrl,
+    //   { email: loginData.email, password: loginData.password }
+    //   )
+    //   .pipe( switchMap( response => {
+    //     if(response.accesToken) {
+    //       this.lastToken = response.accesToken;
+    //       return this.userService.query(`email=${loginData.email}`);
+    //     }
+    //     return of(null);
+    //   }))
+    //   .pipe(
+    //     tap( user => {
+    //       if (!user) {
+    //         localStorage.removeItem(this.storageName);
+    //         this.currentUserSubject.next(null);
+    //       }
+    //       else {
+    //         user[0].token = this.lastToken;
+    //         localStorage.setItem(this.storageName, JSON.stringify(user[0]));
+    //         this.currentUserSubject.next(user[0]);
+    //       }
+    //     })
+    //   );
   }
 
   logOut(): void{

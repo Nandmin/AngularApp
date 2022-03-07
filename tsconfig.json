@@ -16,11 +16,10 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2017",
+    "target": "ES6",
     "module": "es2020",
     "lib": [
-      "es2020",
-      "dom"
+      "DOM", "ES6", "DOM.Iterable", "ScriptHost", "ES2016.Array.Include"
     ]
   },
   "angularCompilerOptions": {
@@ -30,3 +29,9 @@
     "strictTemplates": true
   }
 }
+
+    // "target": "ES6",--"es2017",
+    // "lib": [
+    //   "es2020",
+    //   "dom"
+    // ]
