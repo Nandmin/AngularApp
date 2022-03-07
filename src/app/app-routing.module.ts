@@ -5,12 +5,14 @@ import { LoginComponent } from './page/login/login.component';
 import { UsersComponent } from './page/users/users.component';
 import { UserEditComponent } from './page/user-edit/user-edit.component';
 import { ForbiddenComponent } from './page/forbidden/forbidden.component';
+import { AuthGuardService } from './service/auth-guard.service';
 
+//authguard védi a főoldalt, users, users-edit-et
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent, canActivate: [AuthGuardService] },
   { path: 'login', component: LoginComponent },
-  { path: 'users', component:UsersComponent },
-  { path: 'user/edit/:id', component: UserEditComponent },
+  { path: 'users', component:UsersComponent, canActivate: [AuthGuardService] },
+  { path: 'user/edit/:id', component: UserEditComponent, canActivate: [AuthGuardService] },
   { path: 'forbidden', component: ForbiddenComponent },
   { path: '**', redirectTo: '' },
 ];
