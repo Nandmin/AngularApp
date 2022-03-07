@@ -5,6 +5,7 @@ import { AuthService } from './auth.service';
 @Injectable({
   providedIn: 'root'
 })
+//be kell implementálni a CanActivate-t is
 export class AuthGuardService implements CanActivate {
 
   constructor(
@@ -14,10 +15,10 @@ export class AuthGuardService implements CanActivate {
   ) { }
 
   canActivate():boolean {
-    if(!this.auth.currentUserValue){
-      this.router.navigate(['login']);
-      return false;
-    }
+    // if(!this.auth.currentUserValue){
+    //   this.router.navigate(['login']);
+    //   return false;
+    // }
     return true;
   }
 }

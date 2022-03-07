@@ -16,7 +16,7 @@ export class AuthService {
   logOutUrl= `${this.config.apiUrl}logout`;
   storageName = 'currentUser';
   //currentUserSubject: User  = new User();
-  currentUserSubject: BehaviorSubject<User | User[] | null | any> = new BehaviorSubject(null);
+  currentUserSubject: BehaviorSubject<User | User[] | null | undefined| any> = new BehaviorSubject(null);
   lastToken: string = ''; //user azonosítására szolgál
 
   constructor(
