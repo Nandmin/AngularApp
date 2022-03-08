@@ -18,7 +18,7 @@ export class UserService {
     private config: ConfigService
   ) { }
 
-  get(id?: string | number):Observable<User | User[] | null>{
+  get(id?: string | number):Observable<User | User[]>{
     let url = `${this.config.apiUrl}${this.entity}`;
 
     if(id) {
