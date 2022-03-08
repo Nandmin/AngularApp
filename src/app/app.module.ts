@@ -3,6 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
 
+import { StoreModule } from '@ngrx/store'
+import { EffectsModule } from '@ngrx/effects'
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './page/nav/nav.component';
@@ -27,7 +30,9 @@ import { JwtInterceptorService } from './service/jwt-interceptor.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    StoreModule.forRoot({}, {}),
+    EffectsModule.forRoot({})
   ],
   providers: [
     // hova akarom elhelyezni az új szolgáltatót, melyik osztályt akarom használni, több is felvehető 
