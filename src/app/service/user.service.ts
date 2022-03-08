@@ -18,7 +18,7 @@ export class UserService {
     private config: ConfigService
   ) { }
 
-  get(id?: string | number):Observable<User | User[]>{
+  get(id?: string | number):Observable<User | User[] | any>{
     let url = `${this.config.apiUrl}${this.entity}`;
 
     if(id) {
@@ -28,7 +28,7 @@ export class UserService {
     return this.http.get<User[]>(url);
   }
 
-  query(querystring: string): Observable<User | User[]> {
+  query(querystring: string): Observable<User | User[] | any> {
     const url = `${this.config.apiUrl}${this.entity}?${querystring}`;
     return this.http.get<User[]>(url);
   }

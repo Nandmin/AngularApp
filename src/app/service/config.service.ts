@@ -15,8 +15,8 @@ export class ConfigService {
 
   userColumns: { key: string, label: string}[] = [
     {key: 'id', label: '#'},
-    {key: 'first_name', label: 'Fname'},
-    {key: 'last_name', label: 'Lname'},
+    {key: 'first_name', label: 'First Name'},
+    {key: 'last_name', label: 'Last Name'},
     {key: 'email', label: 'Email'},
     {key: 'role', label: 'Role'},
   ]

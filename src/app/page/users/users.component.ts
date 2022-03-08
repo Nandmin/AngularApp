@@ -14,7 +14,7 @@ export class UsersComponent implements OnInit {
   //user-ek lekérése
   list$: Observable<User | User[] | null | any> = this.userService.get();
   cols: any = this.config.userColumns;
-  user: User = {} ;
+  user: User | User[] | any = {} ;
 
   constructor(
     private userService: UserService,
