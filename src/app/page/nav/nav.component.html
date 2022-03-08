@@ -16,7 +16,7 @@
         *ngFor="let link of navigation"
         class="nav-item"
         routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }"      >
+        [routerLinkActiveOptions]="{ exact: true }">
         <a class="nav-link" [routerLink]="link.href">{{ link.label }}</a>
       </li>
     </ul>

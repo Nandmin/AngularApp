@@ -52,11 +52,8 @@ export class AuthService {
             console.dir(localStorage);
             localStorage.removeItem(this.storageName);
             this.currentUserSubject.next(null);
-            alert('if');
           }
           else {
-            console.dir(user);
-            alert('else');
             user[0].token = this.lastToken;
             localStorage.setItem(this.storageName, JSON.stringify(user[0]));
             this.currentUserSubject.next(user[0]);

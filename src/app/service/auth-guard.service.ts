@@ -13,7 +13,7 @@ export class AuthGuardService implements CanActivate {
     public router: Router
     
   ) { }
-
+    // szerepkör alapú hozzáférés biztosítása
   canActivate():boolean {
     // if(!this.auth.currentUserValue){
     //   this.router.navigate(['login']);
