@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 
 import { StoreModule } from '@ngrx/store'
 import { EffectsModule } from '@ngrx/effects'
+import { userReducer } from '../store/user/userReducers';
+import { userEffect } from '../store/user/userEffects';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,8 +33,8 @@ import { JwtInterceptorService } from './service/jwt-interceptor.service';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    StoreModule.forRoot({}, {}),
-    EffectsModule.forRoot({})
+    StoreModule.forRoot({users: userReducer}),
+    EffectsModule.forRoot([userEffect])
   ],
   providers: [
     // hova akarom elhelyezni az új szolgáltatót, melyik osztályt akarom használni, több is felvehető 
