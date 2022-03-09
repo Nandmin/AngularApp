@@ -7,6 +7,6 @@ export const loadItems = createAction('[User] load items',
     props<{items: User[]}>()
 );
 
-export const errorItem = createAction('[User] error items', 
+export const errorItem = createAction('[User] error item', 
     props<{message: string}>()
 );
